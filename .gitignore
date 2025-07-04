@@ -1,0 +1,44 @@
+# Maven
+/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+build/
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata
+target/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# IDE-specific files (e.g., VS Code)
+.vscode/
+
+# Database files (H2 persistent data)
+data/*.mv.db
+data/*.trace.db
+# إذا وضعت قواعد البيانات في ~/data/ فسيتم تجاهلها تلقائياً إذا كانت خارج مجلد المشروع
