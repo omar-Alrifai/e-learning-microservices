@@ -111,18 +111,17 @@ Follow these steps to set up and run the entire microservices system on your loc
         ```
     * **Keep this terminal window open.** It will display connection details (e.g., `tcp://localhost:9092`). You can access the H2 Console in your browser via `http://localhost:8082` (or the reported web port).
       
-      IMPORTANT NOTE STEPS:   
-      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> to avoid the problems when run the services you can :<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        * Open the H2 console after run java -cp "C:\Users\user\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar" org.h2.tools.Server -tcp -web -browser -tcpAllowOthers -ifNotExists 
-          in bash by clicking on `http://localhost:8082`.
-        * Open it four times in the browser to grant the connection to the database in the services.
-        * in field JDBC URL put the name of database that related in the service :
-           in the first tab put JDBC URL: jdbc:h2:tcp://localhost/~/data/userdb
-           in the second tab put JDBC URL: jdbc:h2:tcp://localhost/~/data/coursedb
-           and for the third it will: jdbc:h2:tcp://localhost/~/data/enrollmentdb
-           and for the fourh it will: jdbc:h2:tcp://localhost/~/data/assessmentdb
-        * On each page, click Connect.
-        * then you can run all services without any problems.
+  **💡 IMPORTANT NOTE ON H2 CONNECTION:**
+    To avoid connection problems when running the services, you need to establish initial connections to each database through the H2 Console.
+
+    * **Open the H2 Console:** After running the H2 Server command, open your web browser and navigate to `http://localhost:8082` (or the web console URL reported in the H2 Server terminal).
+    * **Connect to Each Database:** In the H2 Console login page, you will see a field for `JDBC URL`. For each of your services' databases, follow these steps:
+        * **For `userdb`:** In the `JDBC URL` field, put `jdbc:h2:tcp://localhost/~/data/userdb`. (User Name: `sa`, Password: leave empty). Click `Connect`.
+        * **For `coursedb`:** Open a new browser tab or refresh the H2 Console page. In the `JDBC URL` field, put `jdbc:h2:tcp://localhost/~/data/coursedb`. Click `Connect`.
+        * **For `enrollmentdb`:** Repeat the process. In the `JDBC URL` field, put `jdbc:h2:tcp://localhost/~/data/enrollmentdb`. Click `Connect`.
+        * **For `assessmentdb`:** Repeat the process. In the `JDBC URL` field, put `jdbc:h2:tcp://localhost/~/data/assessmentdb`. Click `Connect`.
+    * **Close the H2 Console browser tabs.** After connecting to each, the database files are created, and subsequent service startups will connect without issues.
+    ---
 
 
 2.  **Start Eureka Server:**
